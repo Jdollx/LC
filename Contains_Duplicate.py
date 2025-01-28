@@ -1,20 +1,16 @@
-# reverse words in a string
-s = "Reverse this string"
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
 
-def reverse_words(s):
-    # Convert the string to a list of characters
-    char_list = list(s)
-    
-    left = 0
-    right = len(char_list) - 1
+        # can use a set because it doesn't allow duplicates
+        # initiate set
+        num_set = set()
 
-    while left < right:
-        # Swap the characters
-        char_list[left], char_list[right] = char_list[right], char_list[left]
-        left += 1
-        right -= 1
-    
-    # Convert the list back to a string
-    return ''.join(char_list)
+        # iterate through the array and check if in set, otherwise false
+        for num in nums:
+            if num in num_set:
+                return True
 
-print(reverse_words(s))
+            else:
+                # since it's not in the set, that means it's first occurence
+                num_set.add(num)
+        return False
