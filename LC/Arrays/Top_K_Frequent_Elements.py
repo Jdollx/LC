@@ -23,6 +23,8 @@ class Solution:
 
         # now we need to iterate through map to find the k occurring numbers
         # we build another array to hold frequency, number
+        # this is because dicts can't be ordered directly, and manually updating the count (without a dict)
+        # would be On^2
         frequency = []
         for num, freq in map.items():
             # adding frequency and number to the array
